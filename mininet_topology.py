@@ -17,13 +17,17 @@ class CustomTopology(Topo):
     
     def __init__(self, num_switches=4, hosts_per_switch=3, 
                  bandwidth=100, delay='5ms', loss=0):
-        super(CustomTopology, self).__init__()
         
+        # Set attributes *before* calling super().__init__
+        # The Mininet Topo class calls build() within its __init__,
+        # so these attributes must exist first.
         self.num_switches = num_switches
         self.hosts_per_switch = hosts_per_switch
         self.bandwidth = bandwidth
         self.delay = delay
         self.loss = loss
+
+        super(CustomTopology, self).__init__()
 
 class LinearTopology(CustomTopology):
     """Linear topology: S1-S2-S3-S4"""
@@ -278,3 +282,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
