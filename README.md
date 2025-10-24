@@ -44,6 +44,7 @@ sudo apt-get install -y iperf
 
 # Install Ryu controller
 sudo pip3 install ryu
+#warning ryu is only being installed on older versions of python like 3.10 dont use a 3.12 virtual environment and also use "pip install "setuptools<58" wheel " command before trying to install ryu controller 
 
 # Install Python dependencies for dataset processing
 sudo pip3 install pandas numpy scikit-learn matplotlib seaborn
