@@ -1,0 +1,522 @@
+##############################################################################################################
+
+siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ sudo python3 mininet_topology.py
+
+============================================================
+SDN-DDoS Dataset Generation Pipeline
+============================================================
+Controller: 127.0.0.1:6653
+Duration per topology: 300 seconds
+Total topologies: 4
+============================================================
+
+
+[1/4] Running Linear topology...
+
+============================================================
+Starting topology: Linear
+============================================================
+
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h11 h12 h13 h21 h22 h23 h31 h32 h33 h41 h42 h43 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h11, s1) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h12, s1) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h13, s1) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h21, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h22, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h23, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h31, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h32, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h33, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h41, s4) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h42, s4) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h43, s4) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s2) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s2, s3) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s3, s4) 
+*** Configuring hosts
+h11 h12 h13 h21 h22 h23 h31 h32 h33 h41 h42 h43 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+
+Network started. Generating traffic...
+Normal hosts: 10
+Attacker hosts: 2
+Generating normal traffic...
+Generating DDoS attack traffic...
+
+Traffic generation complete. Keeping network alive...
+*** Stopping 1 controllers
+c0 
+*** Stopping 15 links
+...............
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 12 hosts
+h11 h12 h13 h21 h22 h23 h31 h32 h33 h41 h42 h43 
+*** Done
+Topology Linear completed.
+
+Waiting 30 seconds before next topology...
+
+
+[2/4] Running Tree topology...
+
+============================================================
+Starting topology: Tree
+============================================================
+
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h1, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h2, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h3, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h4, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h5, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h6, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h7, s4) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h8, s4) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h9, s4) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s2) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s3) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s4) 
+*** Configuring hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+
+Network started. Generating traffic...
+Normal hosts: 8
+Attacker hosts: 1
+Generating normal traffic...
+Generating DDoS attack traffic...
+
+Traffic generation complete. Keeping network alive...
+*** Stopping 1 controllers
+c0 
+*** Stopping 12 links
+............
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 9 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Done
+Topology Tree completed.
+
+Waiting 30 seconds before next topology...
+
+
+[3/4] Running Mesh topology...
+
+============================================================
+Starting topology: Mesh
+============================================================
+
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h1, s1) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h2, s1) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h3, s1) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h4, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h5, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h6, s2) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h7, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h8, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h9, s3) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h10, s4) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h11, s4) (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(h12, s4) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s2, s3) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s2, s4) 
+*** Configuring hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+
+Network started. Generating traffic...
+Normal hosts: 10
+Attacker hosts: 2
+Generating normal traffic...
+Generating DDoS attack traffic...
+
+Traffic generation complete. Keeping network alive...
+*** Stopping 1 controllers
+c0 
+*** Stopping 14 links
+..............
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 12 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 
+*** Done
+Topology Mesh completed.
+
+Waiting 30 seconds before next topology...
+
+
+[4/4] Running DataCenter topology...
+
+============================================================
+Starting topology: DataCenter
+============================================================
+
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 h21 h22 h23 h24 
+*** Adding switches:
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 
+*** Adding links:
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h1, s7) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h2, s7) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h3, s7) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h4, s8) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h5, s8) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h6, s8) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h7, s9) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h8, s9) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h9, s9) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h10, s10) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h11, s10) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h12, s10) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h13, s11) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h14, s11) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h15, s11) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h16, s12) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h17, s12) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h18, s12) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h19, s13) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h20, s13) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h21, s13) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h22, s14) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h23, s14) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (h24, s14) (200.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(200.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s2) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s3, s1) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s3, s2) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s4, s1) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s4, s2) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s5, s1) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s5, s2) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s6, s1) (100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s6, s2) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s7, s3) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s8, s3) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s9, s4) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s10, s4) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s11, s5) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s12, s5) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s13, s6) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s14, s6) 
+*** Configuring hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 h21 h22 h23 h24 
+*** Starting controller
+c0 
+*** Starting 14 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 ...(200.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(200.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+
+Network started. Generating traffic...
+Normal hosts: 20
+Attacker hosts: 4
+Generating normal traffic...
+Generating DDoS attack traffic...
+
+Traffic generation complete. Keeping network alive...
+*** Stopping 1 controllers
+c0 
+*** Stopping 41 links
+.........................................
+*** Stopping 14 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 
+*** Stopping 24 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 h21 h22 h23 h24 
+*** Done
+Topology DataCenter completed.
+
+
+============================================================
+All topologies completed!
+Dataset files have been generated in the current directory
+============================================================
+
+siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ ^Configuring
+
+######################################################################################################################################################
+
+
+(old_venv) siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ python3 dataset_builder.py
+
+============================================================
+SDN-DDoS DATASET BUILDER
+============================================================
+
+STEP 1: Aggregating CSV files
+------------------------------------------------------------
+Aggregating CSV files...
+Found 2 CSV files
+  [1/2] Loading sdn_ddos_dataset_1761300091.csv...
+      Loaded 3238 rows
+  [2/2] Loading sdn_ddos_dataset_1761298966.csv...
+      Loaded 4327 rows
+
+Total rows aggregated: 7565
+Columns: ['timestamp', 'datapath_id', 'flow_id', 'src_ip', 'dst_ip', 'src_port', 'dst_port', 'protocol', 'duration_sec', 'duration_nsec', 'idle_timeout', 'hard_timeout', 'priority', 'packet_count', 'byte_count', 'packet_rate', 'byte_rate', 'flow_speed', 'packets_per_flow', 'bytes_per_packet', 'bytes_per_flow', 'flow_duration', 'flow_iat', 'active_time', 'label']
+
+STEP 2: Cleaning data
+------------------------------------------------------------
+
+Cleaning data...
+  Removed 0 duplicate rows
+  Removed 711 invalid flows
+  Final dataset size: 6854 rows
+
+STEP 3: Feature engineering
+------------------------------------------------------------
+
+Engineering features...
+  Added engineered features
+  Total features: 34
+
+STEP 4: Selecting features
+------------------------------------------------------------
+Selected 28 features:
+   1. src_port
+   2. dst_port
+   3. protocol
+   4. duration_sec
+   5. duration_nsec
+   6. idle_timeout
+   7. hard_timeout
+   8. priority
+   9. packet_count
+  10. byte_count
+  11. packet_rate
+  12. byte_rate
+  13. flow_speed
+  14. packets_per_flow
+  15. bytes_per_packet
+  16. bytes_per_flow
+  17. flow_duration
+  18. flow_iat
+  19. active_time
+  20. src_ip_numeric
+  21. dst_ip_numeric
+  22. packets_per_second
+  23. bytes_per_second
+  24. bytes_per_packet_ratio
+  25. is_tcp
+  26. is_udp
+  27. is_icmp
+  28. is_well_known_port
+
+STEP 5: Preparing ML datasets
+------------------------------------------------------------
+
+Preparing data for ML...
+  Features shape: (6854, 28)
+  Labels shape: (6854,)
+
+  Class distribution:
+    Normal (0): 6823 (99.55%)
+    DDoS (1): 31 (0.45%)
+
+  Train set: 5483 samples
+  Test set: 1371 samples
+
+STEP 6: Saving datasets
+------------------------------------------------------------
+
+Saving processed dataset to sdn_ddos_complete.csv...
+  Saved 6854 rows
+
+Saving train/test splits...
+  Saved sdn_ddos_train.csv (5483 rows)
+  Saved sdn_ddos_test.csv (1371 rows)
+
+STEP 7: Generating statistics
+------------------------------------------------------------
+
+============================================================
+DATASET STATISTICS
+============================================================
+
+Dataset Shape: (6854, 34)
+  Rows: 6854
+  Columns: 34
+
+Class Distribution:
+  Normal (0): 6823 (99.55%)
+  DDoS (1): 31 (0.45%)
+
+Numerical Feature Statistics:
+       datapath_id  src_port  dst_port  protocol  duration_sec  ...  bytes_per_packet_ratio  is_tcp  is_udp  is_icmp  is_well_known_port
+count  6854.000000    6854.0    6854.0    6854.0   6854.000000  ...             6854.000000  6854.0  6854.0   6854.0              6854.0
+mean      4.374234       0.0       0.0       0.0     13.392180  ...               89.303938     0.0     0.0      0.0                 0.0
+std       3.581881       0.0       0.0       0.0      8.742167  ...               12.181456     0.0     0.0      0.0                 0.0
+min       1.000000       0.0       0.0       0.0      0.000000  ...               27.000000     0.0     0.0      0.0                 0.0
+25%       2.000000       0.0       0.0       0.0      6.000000  ...               89.833333     0.0     0.0      0.0                 0.0
+50%       3.000000       0.0       0.0       0.0     13.000000  ...               94.500000     0.0     0.0      0.0                 0.0
+75%       5.000000       0.0       0.0       0.0     21.000000  ...               95.822222     0.0     0.0      0.0                 0.0
+max      14.000000       0.0       0.0       0.0     30.000000  ...               97.999440     0.0     0.0      0.0                 0.0
+
+[8 rows x 30 columns]
+
+Protocol Distribution:
+  Other(0): 6854 (100.00%)
+
+============================================================
+
+============================================================
+DATASET BUILDING COMPLETE!
+============================================================
+
+Generated files:
+  1. sdn_ddos_complete.csv - Full processed dataset
+  2. sdn_ddos_train.csv - Training set
+  3. sdn_ddos_test.csv - Test set
+
+You can now use these files to train your ML models!
+============================================================
+
+(old_venv) siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ 
+
+
+###################################################################################################################
