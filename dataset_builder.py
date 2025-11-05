@@ -66,10 +66,13 @@ class DatasetBuilder:
         self.dataset.drop_duplicates(inplace=True)
         print(f"  Removed {initial_rows - len(self.dataset)} duplicate rows")
         
+        # Handle infinite values first
+        self.dataset.replace([np.inf, -np.inf], np.nan, inplace=True)
+        
         # Handle missing values
         missing = self.dataset.isnull().sum()
         if missing.any():
-            print(f"  Missing values found:")
+            print(f"  Missing values found (including Inf):")
             print(missing[missing > 0])
             self.dataset.fillna(0, inplace=True)
             print(f"  Filled missing values with 0")
@@ -78,9 +81,6 @@ class DatasetBuilder:
         invalid_mask = (self.dataset['packet_count'] == 0) | (self.dataset['byte_count'] == 0)
         self.dataset = self.dataset[~invalid_mask]
         print(f"  Removed {invalid_mask.sum()} invalid flows")
-        
-        # Handle infinite values
-        self.dataset.replace([np.inf, -np.inf], 0, inplace=True)
         
         # Convert IP addresses to numeric (if needed for some models)
         if 'src_ip' in self.dataset.columns:
@@ -137,8 +137,11 @@ class DatasetBuilder:
     def get_feature_columns(self, exclude_cols=None):
         """Get list of feature columns for ML"""
         if exclude_cols is None:
+            # <<< MODIFIED: Exclude numeric IPs from training
             exclude_cols = ['timestamp', 'datapath_id', 'flow_id', 
-                          'src_ip', 'dst_ip', 'label']
+                          'src_ip', 'dst_ip', 'label',
+                          'src_ip_numeric', 'dst_ip_numeric']
+            # >>> END MODIFIED
         
         self.feature_columns = [col for col in self.dataset.columns 
                                if col not in exclude_cols]
@@ -167,12 +170,23 @@ class DatasetBuilder:
         
         # Check class distribution
         print(f"\n  Class distribution:")
-        print(f"    Normal (0): {(y == 0).sum()} ({(y == 0).sum()/len(y)*100:.2f}%)")
-        print(f"    DDoS (1): {(y == 1).sum()} ({(y == 1).sum()/len(y)*100:.2f}%)")
+        # <<< MODIFIED: Handle case where a label might be missing
+        label_counts = y.value_counts()
+        normal_count = label_counts.get(0, 0)
+        ddos_count = label_counts.get(1, 0)
+        print(f"    Normal (0): {normal_count} ({normal_count/len(y)*100:.2f}%)")
+        print(f"    DDoS (1): {ddos_count} ({ddos_count/len(y)*100:.2f}%)")
         
+        if ddos_count == 0:
+            print("\nWARNING: No DDoS (label 1) samples found! Splitting will not be stratified.")
+            stratify_opt = None
+        else:
+            stratify_opt = y
+        # >>> END MODIFIED
+
         # Split data
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=test_size, random_state=random_state, stratify=y
+            X, y, test_size=test_size, random_state=random_state, stratify=stratify_opt
         )
         
         print(f"\n  Train set: {len(X_train)} samples")

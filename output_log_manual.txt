@@ -1,11 +1,10 @@
-##############################################################################################################
-
 siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ sudo python3 mininet_topology.py
 
 ============================================================
 SDN-DDoS Dataset Generation Pipeline
 ============================================================
 Controller: 127.0.0.1:6653
+Controller REST API: 127.0.0.1:8080
 Duration per topology: 300 seconds
 Total topologies: 4
 ============================================================
@@ -79,13 +78,26 @@ s1 s2 s3 s4 ...(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of cla
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 
-Network started. Generating traffic...
-Normal hosts: 10
-Attacker hosts: 2
+Network started. Waiting 5s for switches to connect...
+Generating traffic...
+Normal hosts: 8
+Attacker hosts: 4 (['10.0.0.3', '10.0.0.12', '10.0.0.10', '10.0.0.9'])
 Generating normal traffic...
+
+STARTING ATTACK
+
+Notifying controller of 4 attackers at http://127.0.0.1:8080/ddos/attackers...
+  SUCCESS: Controller acknowledged request. Response: Marked 4 IPs as attackers.
 Generating DDoS attack traffic...
 
+Attack is running for 210.0 seconds...
+
 Traffic generation complete. Keeping network alive...
+
+STOPPING ATTACK
+
+Clearing attacker list at http://127.0.0.1:8080/ddos/clear...
+  SUCCESS: Controller acknowledged request. Response: Cleared 4 attacker IPs.
 *** Stopping 1 controllers
 c0 
 *** Stopping 15 links
@@ -159,13 +171,26 @@ s1 s2 s3 s4 ...(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb:
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 
-Network started. Generating traffic...
-Normal hosts: 8
-Attacker hosts: 1
+Network started. Waiting 5s for switches to connect...
+Generating traffic...
+Normal hosts: 6
+Attacker hosts: 3 (['10.0.0.6', '10.0.0.2', '10.0.0.7'])
 Generating normal traffic...
+
+STARTING ATTACK
+
+Notifying controller of 3 attackers at http://127.0.0.1:8080/ddos/attackers...
+  SUCCESS: Controller acknowledged request. Response: Marked 3 IPs as attackers.
 Generating DDoS attack traffic...
 
+Attack is running for 210.0 seconds...
+
 Traffic generation complete. Keeping network alive...
+
+STOPPING ATTACK
+
+Clearing attacker list at http://127.0.0.1:8080/ddos/clear...
+  SUCCESS: Controller acknowledged request. Response: Cleared 3 attacker IPs.
 *** Stopping 1 controllers
 c0 
 *** Stopping 12 links
@@ -219,9 +244,13 @@ s1 s2 s3 s4
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (h12, s4) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
-(s2, s3) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s2) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
-(s2, s4) 
+(s1, s3) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s1, s4) (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(s2, s3) 
 *** Configuring hosts
 h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 
 *** Starting controller
@@ -230,6 +259,9 @@ c0
 s1 s2 s3 s4 ...(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
@@ -238,23 +270,37 @@ s1 s2 s3 s4 ...(50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of cla
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
+(100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (50.00Mbit 2ms delay) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (100.00Mbit 5ms delay 0.00000% loss) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 
-Network started. Generating traffic...
-Normal hosts: 10
-Attacker hosts: 2
+Network started. Waiting 5s for switches to connect...
+Generating traffic...
+Normal hosts: 8
+Attacker hosts: 4 (['10.0.0.9', '10.0.0.12', '10.0.0.3', '10.0.0.8'])
 Generating normal traffic...
+
+STARTING ATTACK
+
+Notifying controller of 4 attackers at http://127.0.0.1:8080/ddos/attackers...
+  SUCCESS: Controller acknowledged request. Response: Marked 4 IPs as attackers.
 Generating DDoS attack traffic...
 
+Attack is running for 210.0 seconds...
+
 Traffic generation complete. Keeping network alive...
+
+STOPPING ATTACK
+
+Clearing attacker list at http://127.0.0.1:8080/ddos/clear...
+  SUCCESS: Controller acknowledged request. Response: Cleared 4 attacker IPs.
 *** Stopping 1 controllers
 c0 
-*** Stopping 14 links
-..............
+*** Stopping 16 links
+................
 *** Stopping 4 switches
 s1 s2 s3 s4 
 *** Stopping 12 hosts
@@ -353,13 +399,26 @@ s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 ...(200.00Mbit) *** Error: Warnin
 (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (10.00Mbit 1ms delay) (50.00Mbit) *** Error: Warning: sch_htb: quantum of class 50001 is big. Consider r2q change.
 
-Network started. Generating traffic...
-Normal hosts: 20
-Attacker hosts: 4
+Network started. Waiting 5s for switches to connect...
+Generating traffic...
+Normal hosts: 15
+Attacker hosts: 9 (['10.0.0.18', '10.0.0.22', '10.0.0.3', '10.0.0.17', '10.0.0.9', '10.0.0.11', '10.0.0.12', '10.0.0.15', '10.0.0.24'])
 Generating normal traffic...
+
+STARTING ATTACK
+
+Notifying controller of 9 attackers at http://127.0.0.1:8080/ddos/attackers...
+  SUCCESS: Controller acknowledged request. Response: Marked 9 IPs as attackers.
 Generating DDoS attack traffic...
 
+Attack is running for 210.0 seconds...
+
 Traffic generation complete. Keeping network alive...
+
+STOPPING ATTACK
+
+Clearing attacker list at http://127.0.0.1:8080/ddos/clear...
+  SUCCESS: Controller acknowledged request. Response: Cleared 9 attacker IPs.
 *** Stopping 1 controllers
 c0 
 *** Stopping 41 links
@@ -377,10 +436,20 @@ All topologies completed!
 Dataset files have been generated in the current directory
 ============================================================
 
-siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ ^Configuring
+siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ 
 
-######################################################################################################################################################
 
+
+
+
+
+#############################################################################################################################################
+
+
+#############################################################################################################################################
+
+
+#############################################################################################################################################
 
 (old_venv) siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ python3 dataset_builder.py
 
@@ -391,13 +460,11 @@ SDN-DDoS DATASET BUILDER
 STEP 1: Aggregating CSV files
 ------------------------------------------------------------
 Aggregating CSV files...
-Found 2 CSV files
-  [1/2] Loading sdn_ddos_dataset_1761300091.csv...
-      Loaded 3238 rows
-  [2/2] Loading sdn_ddos_dataset_1761298966.csv...
-      Loaded 4327 rows
+Found 1 CSV files
+  [1/1] Loading sdn_ddos_dataset_1762333376.csv...
+      Loaded 66494 rows
 
-Total rows aggregated: 7565
+Total rows aggregated: 66494
 Columns: ['timestamp', 'datapath_id', 'flow_id', 'src_ip', 'dst_ip', 'src_port', 'dst_port', 'protocol', 'duration_sec', 'duration_nsec', 'idle_timeout', 'hard_timeout', 'priority', 'packet_count', 'byte_count', 'packet_rate', 'byte_rate', 'flow_speed', 'packets_per_flow', 'bytes_per_packet', 'bytes_per_flow', 'flow_duration', 'flow_iat', 'active_time', 'label']
 
 STEP 2: Cleaning data
@@ -405,8 +472,8 @@ STEP 2: Cleaning data
 
 Cleaning data...
   Removed 0 duplicate rows
-  Removed 711 invalid flows
-  Final dataset size: 6854 rows
+  Removed 54493 invalid flows
+  Final dataset size: 12001 rows
 
 STEP 3: Feature engineering
 ------------------------------------------------------------
@@ -417,7 +484,7 @@ Engineering features...
 
 STEP 4: Selecting features
 ------------------------------------------------------------
-Selected 28 features:
+Selected 26 features:
    1. src_port
    2. dst_port
    3. protocol
@@ -437,39 +504,37 @@ Selected 28 features:
   17. flow_duration
   18. flow_iat
   19. active_time
-  20. src_ip_numeric
-  21. dst_ip_numeric
-  22. packets_per_second
-  23. bytes_per_second
-  24. bytes_per_packet_ratio
-  25. is_tcp
-  26. is_udp
-  27. is_icmp
-  28. is_well_known_port
+  20. packets_per_second
+  21. bytes_per_second
+  22. bytes_per_packet_ratio
+  23. is_tcp
+  24. is_udp
+  25. is_icmp
+  26. is_well_known_port
 
 STEP 5: Preparing ML datasets
 ------------------------------------------------------------
 
 Preparing data for ML...
-  Features shape: (6854, 28)
-  Labels shape: (6854,)
+  Features shape: (12001, 26)
+  Labels shape: (12001,)
 
   Class distribution:
-    Normal (0): 6823 (99.55%)
-    DDoS (1): 31 (0.45%)
+    Normal (0): 9060 (75.49%)
+    DDoS (1): 2941 (24.51%)
 
-  Train set: 5483 samples
-  Test set: 1371 samples
+  Train set: 9600 samples
+  Test set: 2401 samples
 
 STEP 6: Saving datasets
 ------------------------------------------------------------
 
 Saving processed dataset to sdn_ddos_complete.csv...
-  Saved 6854 rows
+  Saved 12001 rows
 
 Saving train/test splits...
-  Saved sdn_ddos_train.csv (5483 rows)
-  Saved sdn_ddos_test.csv (1371 rows)
+  Saved sdn_ddos_train.csv (9600 rows)
+  Saved sdn_ddos_test.csv (2401 rows)
 
 STEP 7: Generating statistics
 ------------------------------------------------------------
@@ -478,29 +543,31 @@ STEP 7: Generating statistics
 DATASET STATISTICS
 ============================================================
 
-Dataset Shape: (6854, 34)
-  Rows: 6854
+Dataset Shape: (12001, 34)
+  Rows: 12001
   Columns: 34
 
 Class Distribution:
-  Normal (0): 6823 (99.55%)
-  DDoS (1): 31 (0.45%)
+  Normal (0): 9060 (75.49%)
+  DDoS (1): 2941 (24.51%)
 
 Numerical Feature Statistics:
-       datapath_id  src_port  dst_port  protocol  duration_sec  ...  bytes_per_packet_ratio  is_tcp  is_udp  is_icmp  is_well_known_port
-count  6854.000000    6854.0    6854.0    6854.0   6854.000000  ...             6854.000000  6854.0  6854.0   6854.0              6854.0
-mean      4.374234       0.0       0.0       0.0     13.392180  ...               89.303938     0.0     0.0      0.0                 0.0
-std       3.581881       0.0       0.0       0.0      8.742167  ...               12.181456     0.0     0.0      0.0                 0.0
-min       1.000000       0.0       0.0       0.0      0.000000  ...               27.000000     0.0     0.0      0.0                 0.0
-25%       2.000000       0.0       0.0       0.0      6.000000  ...               89.833333     0.0     0.0      0.0                 0.0
-50%       3.000000       0.0       0.0       0.0     13.000000  ...               94.500000     0.0     0.0      0.0                 0.0
-75%       5.000000       0.0       0.0       0.0     21.000000  ...               95.822222     0.0     0.0      0.0                 0.0
-max      14.000000       0.0       0.0       0.0     30.000000  ...               97.999440     0.0     0.0      0.0                 0.0
+        datapath_id      src_port      dst_port      protocol  ...        is_tcp        is_udp       is_icmp  is_well_known_port
+count  12001.000000  12001.000000  12001.000000  12001.000000  ...  12001.000000  12001.000000  12001.000000        12001.000000
+mean       3.126739   8253.686193    535.067161      3.956504  ...      0.488376      0.032164      0.479460            0.428131
+std        2.769360  13644.429683   2429.598508      3.421029  ...      0.499886      0.176443      0.499599            0.494829
+min        1.000000      0.000000      0.000000      1.000000  ...      0.000000      0.000000      0.000000            0.000000
+25%        1.000000      0.000000      0.000000      1.000000  ...      0.000000      0.000000      0.000000            0.000000
+50%        2.000000     80.000000     53.000000      6.000000  ...      0.000000      0.000000      0.000000            0.000000
+75%        4.000000  13229.000000     80.000000      6.000000  ...      1.000000      0.000000      1.000000            1.000000
+max       14.000000  60140.000000  53518.000000     17.000000  ...      1.000000      1.000000      1.000000            1.000000
 
 [8 rows x 30 columns]
 
 Protocol Distribution:
-  Other(0): 6854 (100.00%)
+  TCP: 5861 (48.84%)
+  ICMP: 5754 (47.95%)
+  UDP: 386 (3.22%)
 
 ============================================================
 
@@ -517,6 +584,3 @@ You can now use these files to train your ML models!
 ============================================================
 
 (old_venv) siddhartha-pittala@Totoro:~/Desktop/SDN-DDos-synthetic-dataset$ 
-
-
-###################################################################################################################

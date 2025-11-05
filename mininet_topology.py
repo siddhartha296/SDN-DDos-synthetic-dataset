@@ -11,6 +11,10 @@ from mininet.link import TCLink
 from mininet.log import setLogLevel
 import random
 import time
+import os
+import json
+import requests # This must be installed (sudo pip3 install requests)
+
 
 class CustomTopology(Topo):
     """Base class for custom topologies"""
@@ -153,27 +157,73 @@ class DataCenterTopology(CustomTopology):
                 
                 edge_id += 1
 
+def notify_controller(controller_ip, controller_rest_port, attacker_hosts, clear=False):
+    """
+    Notify the Ryu controller about attacker IPs via REST API
+    """
+    
+    url = f"http://{controller_ip}:{controller_rest_port}/ddos/clear"
+    action_msg = "Clearing attacker list"
+    payload = None
+    
+    if not clear:
+        url = f"http://{controller_ip}:{controller_rest_port}/ddos/attackers"
+        attacker_ips = [h.IP() for h in attacker_hosts]
+        payload = {'ips': attacker_ips}
+        action_msg = f"Notifying controller of {len(attacker_ips)} attackers"
+    
+    print(f"\n{action_msg} at {url}...")
+    
+    try:
+        if payload:
+            response = requests.post(url, json=payload, timeout=5)
+        else:
+            response = requests.post(url, timeout=5)
+        
+        if response.status_code == 200:
+            print(f"  SUCCESS: Controller acknowledged request. Response: {response.text}")
+        else:
+            print(f"  ERROR: Controller returned status code {response.status_code}")
+            print(f"  Response: {response.text}")
+            
+    except requests.exceptions.ConnectionError as e:
+        print("\n" + "="*50)
+        print("  CRITICAL ERROR: CONNECTION FAILED.")
+        print(f"  URL: {url}")
+        print("  1. Is the Ryu controller (ryu_controller.py) running?")
+        print("  2. Is it listening on port 8080?")
+        print("="*50 + "\n")
+    except Exception as e:
+        print(f"  An unexpected error occurred: {e}")
+
+
 def run_topology(topology_class, duration=300, controller_ip='127.0.0.1', 
                 controller_port=6653, topo_name="custom"):
     """
     Run a specific topology and generate traffic
-    
-    Args:
-        topology_class: Topology class to instantiate
-        duration: Duration to run the topology (seconds)
-        controller_ip: Ryu controller IP
-        controller_port: Ryu controller port
-        topo_name: Name for logging
     """
+    controller_rest_port = 8080
+    
+    # <<< MODIFIED: Check for hping3
+    # Note: This checks a common path. If hping3 is elsewhere, this might fail.
+    # The 'which hping3' command in the shell is the best check.
+    hping3_path = '/usr/sbin/hping3'
+    if not os.path.exists(hping3_path):
+        print("="*60)
+        print(f"CRITICAL ERROR: 'hping3' not found at {hping3_path}")
+        print("This script CANNOT generate attack traffic without it.")
+        print("Please install it: sudo apt-get install hping3")
+        print("="*60)
+        return # Stop this topology run
+    # >>> END MODIFIED
+    
     print(f"\n{'='*60}")
     print(f"Starting topology: {topo_name}")
     print(f"{'='*60}\n")
     
-    # Create topology
     topo = topology_class(num_switches=4, hosts_per_switch=3,
                           bandwidth=100, delay='5ms', loss=0)
     
-    # Create network
     net = Mininet(topo=topo,
                   controller=lambda name: RemoteController(
                       name, ip=controller_ip, port=controller_port),
@@ -181,66 +231,80 @@ def run_topology(topology_class, duration=300, controller_ip='127.0.0.1',
                   autoSetMacs=True,
                   autoStaticArp=True)
     
-    net.start()
+    try:
+        net.start()
+        
+        print("Network started. Waiting 5s for switches to connect...")
+        time.sleep(5) 
+        
+        print("Generating traffic...")
+        
+        hosts = net.hosts
+        
+        num_attackers = max(1, int(len(hosts) * 0.4)) 
+        attackers = random.sample(hosts, num_attackers)
+        normal_hosts = [h for h in hosts if h not in attackers]
+        
+        print(f"Normal hosts: {len(normal_hosts)}")
+        print(f"Attacker hosts: {len(attackers)} ({[h.IP() for h in attackers]})")
+        
+        generate_normal_traffic(normal_hosts, duration)
+        
+        # Wait for normal traffic to establish
+        time.sleep(duration * 0.3)
+        
+        print("\nSTARTING ATTACK")
+        notify_controller(controller_ip, controller_rest_port, attackers, clear=False)
+        
+        attack_duration = duration * 0.7
+        generate_attack_traffic(attackers, normal_hosts, attack_duration)
+        
+        # We must wait for the attack to actually run
+        print(f"\nAttack is running for {attack_duration} seconds...")
+        time.sleep(attack_duration)
+        
+        print(f"\nTraffic generation complete. Keeping network alive...")
+        time.sleep(10) # Cooldown period
     
-    print("Network started. Generating traffic...")
-    
-    # Get all hosts
-    hosts = net.hosts
-    
-    # Designate some hosts as attackers (20% of hosts)
-    num_attackers = max(1, len(hosts) // 5)
-    attackers = random.sample(hosts, num_attackers)
-    normal_hosts = [h for h in hosts if h not in attackers]
-    
-    print(f"Normal hosts: {len(normal_hosts)}")
-    print(f"Attacker hosts: {len(attackers)}")
-    
-    # Generate normal traffic
-    generate_normal_traffic(normal_hosts, duration)
-    
-    # Generate attack traffic (start after some normal traffic)
-    time.sleep(duration * 0.3)  # Wait 30% of duration
-    generate_attack_traffic(attackers, normal_hosts, duration * 0.7)
-    
-    print(f"\nTraffic generation complete. Keeping network alive...")
-    time.sleep(10)  # Keep network alive for final stats collection
-    
-    # Cleanup
-    net.stop()
-    print(f"Topology {topo_name} completed.\n")
+    finally:
+        print("\nSTOPPING ATTACK")
+        notify_controller(controller_ip, controller_rest_port, [], clear=True)
+        time.sleep(2)
+        
+        net.stop()
+        print(f"Topology {topo_name} completed.\n")
 
 def generate_normal_traffic(hosts, duration):
     """Generate normal traffic patterns"""
     print("Generating normal traffic...")
     
+    if not hosts:
+        print("No normal hosts to generate traffic.")
+        return
+
     for host in hosts:
-        # HTTP-like traffic
         target = random.choice([h for h in hosts if h != host])
-        host.cmd(f'timeout {duration} ping -i 0.5 {target.IP()} > /dev/null 2>&1 &')
+        host.cmd(f'timeout {duration} ping -i 0.3 {target.IP()} > /dev/null 2>&1 &')
         
-        # Occasional larger transfers
-        if random.random() < 0.3:
+        if random.random() < 0.4:
             target = random.choice([h for h in hosts if h != host])
-            host.cmd(f'timeout {duration/2} iperf -c {target.IP()} -t {duration/2} -b 10M > /dev/null 2>&1 &')
+            host.cmd(f'timeout {duration/2} iperf -c {target.IP()} -t {duration/2} -b 20M > /dev/null 2>&1 &')
 
 def generate_attack_traffic(attackers, targets, duration):
     """Generate DDoS attack traffic"""
     print("Generating DDoS attack traffic...")
     
-    # Select victim(s)
-    victims = random.sample(targets, min(2, len(targets)))
-    
+    if not targets or not attackers:
+        print("No attackers or targets for attack.")
+        return
+        
     for attacker in attackers:
-        for victim in victims:
-            # High-rate ICMP flood
-            attacker.cmd(f'timeout {duration} hping3 --icmp --flood {victim.IP()} > /dev/null 2>&1 &')
-            
-            # SYN flood
-            attacker.cmd(f'timeout {duration} hping3 -S --flood -p 80 {victim.IP()} > /dev/null 2>&1 &')
-            
-            # UDP flood
-            attacker.cmd(f'timeout {duration} hping3 --udp --flood -p 53 {victim.IP()} > /dev/null 2>&1 &')
+        for victim in targets:
+            # <<< MODIFIED: Removed /dev/null to see errors
+            attacker.cmd(f'timeout {duration} hping3 --icmp --flood {victim.IP()} &')
+            attacker.cmd(f'timeout {duration} hping3 -S --flood -p 80 {victim.IP()} &')
+            attacker.cmd(f'timeout {duration} hping3 --udp --flood -p 53 {victim.IP()} &')
+            # >>> END MODIFIED
 
 def main():
     """Main function to run all topologies"""
@@ -255,12 +319,13 @@ def main():
     
     controller_ip = '127.0.0.1'
     controller_port = 6653
-    duration_per_topology = 300  # 5 minutes per topology
+    duration_per_topology = 300
     
     print("\n" + "="*60)
     print("SDN-DDoS Dataset Generation Pipeline")
     print("="*60)
     print(f"Controller: {controller_ip}:{controller_port}")
+    print(f"Controller REST API: {controller_ip}:8080") 
     print(f"Duration per topology: {duration_per_topology} seconds")
     print(f"Total topologies: {len(topologies)}")
     print("="*60 + "\n")
@@ -270,7 +335,6 @@ def main():
         run_topology(topo_class, duration_per_topology, 
                     controller_ip, controller_port, topo_name)
         
-        # Wait between topologies
         if i < len(topologies):
             print(f"Waiting 30 seconds before next topology...\n")
             time.sleep(30)
@@ -282,4 +346,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
